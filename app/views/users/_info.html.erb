@@ -2,11 +2,26 @@
   <tr><%= image_tag user.get_profile_image, size:'100x100' %></tr>
   <tr>
 	  <th>name</th>
-	  <th><%= user.name %></th>
+	  <td><%= user.name %></td>
   </tr>
   <tr>
 	  <th>introduction</th>
-	  <th><%= user.introduction %></th>
+	  <td><%= user.introduction %></td>
+  </tr>
+  <tr>
+    <th>follows</th>
+    <td>
+        <%= link_to user_followings_path(user) do %>
+        <%= user.following_ids.count %>
+        <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>followers</th>
+    <td>
+      <%= link_to user_followers_path(user) do %>
+      <%= user.follower_ids.count %></td>
+      <% end %>
   </tr>
 </table>
 　
